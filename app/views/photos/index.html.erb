@@ -1,0 +1,14 @@
+<h1>My Photos</h1>
+<p><%= link_to("Add photo", new_photo_path, class: "btn btn-success") %></p>
+<% @photos.each do |photo| %>
+
+   <div class="photo">
+    <%= image_tag photo.url %>
+    <p><%= photo.caption %></p>
+    <p>
+      <%= link_to('edit', edit_photo_path(photo.id), class: "btn btn-xs bt-primary") %>
+      <%= link_to('delete', photo_path(photo.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-xs") %></p>
+</div>
+
+
+<% end %>
